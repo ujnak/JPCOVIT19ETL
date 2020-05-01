@@ -1,2 +1,15 @@
-# OpenDataETL
- Load various formats of Open Data in Oracle Database
+# Project COVID-19のオープンデータをOracle Databaseに取り込むスクリプト群
+
+Code for Japanが作成している「新型コロナウイルス感染症対策に関するオープンデータ項目定義書」の陽性患者属性の定義にしたがって作成した表に、各都道府県が公開しているデータをOracle Databaseに取り込むPL/SQLスクリプト群
+
+## はじめに
+
+陽性患者属性のデータは各都道府県がぞれぞれ異なったフォーマットで公開しています。これを同じ表に取り込むことでより扱いを容易にします。Oracle DatabaseとOracle APEXが提供する機能を使用します。
+
+### 必要な環境
+
+インターネットにつながるOracle DatabaseにOracle APEXがインストールされた環境が必要です。無料で取得可能な https://apex.oracle.com のワークスペースまたは、Oracle Cloudで提供されているAlways Freeとして永年無料で利用可能なインスタンスも使用できます。
+
+### 利用方法
+
+共通で利用する表定義やファンクションのSQLを実行します。それ以外は、都道府県別のスクリプトを実行し、データを取り込むファンクションやプロシージャーを作成します。
