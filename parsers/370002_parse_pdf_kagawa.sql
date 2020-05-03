@@ -93,7 +93,7 @@ begin
           else
             l_date := null;
           end if;
-          dbms_output.put_line(l_date);
+          -- dbms_output.put_line(l_date);
       else
           apex_string.push(l_string, l_line);
       end if;
