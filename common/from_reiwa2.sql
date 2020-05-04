@@ -12,3 +12,5 @@ begin
   l_parts := apex_string.split(l_date, ':');
   return to_date(to_char(to_number(l_parts(1))+2018, '9999') || '-' || l_parts(2) || '-' || l_parts(3), 'YYYY-MM-DD');
 end;
+/
+

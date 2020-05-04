@@ -32,3 +32,5 @@ exception
     when no_data_found then
         return null;
 end get_content_b;
+/
+

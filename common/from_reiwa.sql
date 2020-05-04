@@ -25,3 +25,5 @@ begin
   || substr(p_string_date, instr(p_string_date,'年'));
   return to_date(l_date,'YYYY"年"MM"月"DD"日"'); 
 end;
+/
+

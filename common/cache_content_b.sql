@@ -13,3 +13,4 @@ is
     update covid19_municipalities set content_blob = l_blob
     where code = p_code;
 end cache_content_b;
+/

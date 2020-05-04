@@ -42,3 +42,5 @@ begin
       l_warning);
     return l_clob;
 end get_content_c;
+/
+
