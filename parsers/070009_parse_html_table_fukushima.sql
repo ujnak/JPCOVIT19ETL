@@ -8,17 +8,12 @@ as
   l_end    number; 
   l_row    t_table_row; 
   c_record sys_refcursor; 
-  l_col001 varchar2(1000); 
-  l_col002 varchar2(1000); 
-  l_col003 varchar2(1000); 
-  l_col004 varchar2(1000); 
-  l_col005 varchar2(1000); 
 begin 
   -- 必要な情報までスキップ。 
   l_start := instr(p_html, '<tbody'); 
-  l_end := instr(p_html, '</tbody>'); 
-  l_html := substr(p_html, l_start, l_end - l_start + 8); 
-  l_html := replace(l_html,'&nbsp;'); 
+  l_end   := instr(p_html, '</tbody>'); 
+  l_html  := substr(p_html, l_start, l_end - l_start + 8); 
+  l_html  := replace(l_html,'&nbsp;'); 
   for r in 
   ( 
      select td from xmltable('tbody/tr' passing xmltype(l_html) 
@@ -47,3 +42,4 @@ begin
     pipe row(l_row); 
   end loop; 
 end parse_html_table_fukushima; 
+/

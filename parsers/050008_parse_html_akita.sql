@@ -1,6 +1,3 @@
-/*
- * プレーンなHTMLを表形式に変換する。
- */
 create or replace function parse_html_akita(
   p_html clob
 )
@@ -57,3 +54,4 @@ begin
       end if;
   end loop;
 end parse_html_akita;
+/

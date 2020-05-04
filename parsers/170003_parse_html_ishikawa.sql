@@ -115,3 +115,4 @@ pipe row(t_table_row(to_char(l_patient_no, '9999999'),
                          null, null, null, null, null
 ));
 end parse_html_ishikawa;
+/

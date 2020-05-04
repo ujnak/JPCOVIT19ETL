@@ -1,10 +1,4 @@
 /*
- * 更新時に、すでに存在する患者データをロックするために使用します。
- */
-CREATE OR REPLACE EDITIONABLE TYPE  "MUNICS_T" as table of number
-/
-
-/*
  * 取り込むオープンデータの一行を表現します。
  */
 CREATE OR REPLACE EDITIONABLE TYPE  "T_TABLE_ROW" as object (

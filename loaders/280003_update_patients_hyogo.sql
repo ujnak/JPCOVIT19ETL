@@ -1,3 +1,6 @@
+/*
+ * 兵庫県はXLSX
+ */
 create or replace procedure UPDATE_PATIENTS_HYOGO(
     P_MUNICIPALITY_CODE IN NUMBER DEFAULT 280003,
     P_URL IN VARCHAR2,
@@ -5,13 +8,11 @@ create or replace procedure UPDATE_PATIENTS_HYOGO(
 )
 as
     pragma autonomous_transaction;
-    l_munics munics_t;
-    l_file_name varchar2(200) := substr(p_url,instr(p_url,'/',-1)+1);
+    l_file_name varchar2(200) := 'dummy.xlsx';
 begin
-    -- 変更対象の地方自治体情報をロック。
-    select "全国地方公共団体コード" bulk collect into l_munics from covid19_patients 
-    where "全国地方公共団体コード" = p_municipality_code for update nowait;
-    -- 取得したデータのうち、変更分のみを適用。
+    if p_cache = 0 then
+        l_file_name := substr(p_url,instr(p_url,'/',-1)+1);
+    end if;
     merge into covid19_patients p
     using
     (
@@ -76,7 +77,6 @@ begin
             n."発症_年月日",n."患者_居住地",n."患者_年代",n."患者_性別",n."患者_職業",
             n."患者_渡航歴の有無フラグ",n."備考"
         );
-    -- 更新マークを現在時刻にする。
-    mark_update(p_municipality_code => p_municipality_code);
     commit;
 end UPDATE_PATIENTS_HYOGO;
+/

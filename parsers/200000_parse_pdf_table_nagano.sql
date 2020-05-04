@@ -9,7 +9,7 @@ as
     l_line    varchar2(1000);
     l_parsed  varchar2(1000);
     l_row t_table_row := null;
-    l_file_name varchar2(200) := substr(p_url,instr(p_url,'/',-1)+1);
+    l_file_name varchar2(200) := 'dummy.xlsx';
     l_job      varchar2(1000);
     l_home     varchar2(1000);
     l_hospital varchar2(1000);
@@ -124,3 +124,4 @@ begin
         pipe row(l_row);
     end if;
 end parse_pdf_table_nagano;
+/

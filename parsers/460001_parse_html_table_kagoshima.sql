@@ -55,3 +55,4 @@ begin
     pipe row(l_row);
   end loop;
 end parse_html_table_kagoshima;
+/

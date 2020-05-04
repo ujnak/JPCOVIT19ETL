@@ -10,7 +10,6 @@ as
     l_line    varchar2(1000);
     l_parsed  varchar2(1000);
     l_row t_table_row := null;
-    l_file_name varchar2(200) := substr(p_url,instr(p_url,'/',-1)+1);
     l_string apex_t_varchar2 := apex_t_varchar2();
     l_count number;
     l_patient_no varchar2(1000);
@@ -102,3 +101,4 @@ begin
       l_job := null; l_date := null;
   end if;
 end parse_pdf_yamanashi;
+/
