@@ -4,7 +4,7 @@
 create or replace procedure UPDATE_PATIENTS_OKINAWA( 
     P_MUNICIPALITY_CODE IN NUMBER DEFAULT 470007, 
     P_URL IN VARCHAR2, 
-    P_CACHE IN NUMBER DEFAULT 0 
+    P_CACHE IN NUMBER DEFAULT 1 
 ) 
 as 
     pragma autonomous_transaction; 
