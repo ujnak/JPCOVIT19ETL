@@ -17,7 +17,7 @@ begin
             p_municipality_code as "全国地方公共団体コード",
             '茨城県' as "都道府県名",
             normalize_date(col006) as "公表_年月日",
-            to_char(normalize_date(col002),'DY') as "曜日",
+            to_char(normalize_date(col006),'DY') as "曜日",
             normalize_text(col004) as "患者_居住地",
             normalize_age(col002)  as "患者_年代",
             normalize_sex(col003)  as "患者_性別",
