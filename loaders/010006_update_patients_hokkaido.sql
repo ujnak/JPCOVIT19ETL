@@ -29,7 +29,7 @@ begin
             normalize_text(col004) as "患者_居住地",
             normalize_age(col005)  as "患者_年代",
             normalize_sex(col006)  as "患者_性別",
-            col007 as "患者_職業", col008 as "患者_状態"
+            col007 as "患者_職業", col008 as "患者_症状", col012 as "患者_状態"
         from table(
             apex_data_parser.parse(
                 p_content => get_content_b(
@@ -45,7 +45,7 @@ begin
         minus
         select 
             LINE_NO,"全国地方公共団体コード","都道府県名","公表_年月日","曜日",
-            "患者_居住地","患者_年代","患者_性別","患者_職業","患者_状態"
+            "患者_居住地","患者_年代","患者_性別","患者_職業","患者_症状","患者_状態"
         from covid19_patients
         where "全国地方公共団体コード" = p_municipality_code
     ) n
@@ -58,17 +58,18 @@ begin
             p."患者_年代" = n."患者_年代",
             p."患者_性別" = n."患者_性別",
             p."患者_職業" = n."患者_職業",
+            p."患者_症状" = n."患者_症状",
             p."患者_状態" = n."患者_状態"
     when not matched then
         insert(
             LINE_NO, "全国地方公共団体コード","都道府県名",
             "公表_年月日","曜日","患者_居住地","患者_年代",
-            "患者_性別","患者_職業","患者_状態"
+            "患者_性別","患者_職業","患者_症状","患者_状態"
         )
         values(
             n.LINE_NO,n."全国地方公共団体コード",n."都道府県名",
             n."公表_年月日",n."曜日",n."患者_居住地",n."患者_年代",
-            n."患者_性別",n."患者_職業",n."患者_状態"
+            n."患者_性別",n."患者_職業",n."患者_症状",n."患者_状態"
         );
     commit;
 end UPDATE_PATIENTS_HOKKAIDO;

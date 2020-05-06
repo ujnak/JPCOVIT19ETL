@@ -86,6 +86,13 @@ begin
                     l_row.col006 := l_columns(1);
                 end if;
             end if;
+            if instr(l_line, '退院済') > 0 then
+                l_row.col007 := '退院';
+            elsif instr(l_line, '入院済') > 0 then
+                l_row.col007 := '入院中';
+            else
+                l_row.col007 := null;
+            end if;
             continue;
         end if;
     end loop;

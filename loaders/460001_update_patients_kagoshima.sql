@@ -24,7 +24,7 @@ begin
             case when col007 = '〇' then
                 1
             else
-                0
+                null
             end as "患者_退院済フラグ"
         from table(
             parse_html_table_kagoshima(

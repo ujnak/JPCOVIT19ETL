@@ -7,3 +7,5 @@ as
 begin
   null;
 end UPDATE_NOTHING;
+/
+

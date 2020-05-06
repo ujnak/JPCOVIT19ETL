@@ -35,9 +35,11 @@ begin
         fetch c_record into l_row.col005;
     close c_record;
     if instr(l_row.col001,'例目') > 0 then
-        l_row.col001 := to_single_byte(l_row.col001);
-        l_row.col002 := to_single_byte(l_row.col002);
-        l_row.col003 := to_single_byte(l_row.col003);
+        l_row.col001 := trim(to_single_byte(l_row.col001));
+        l_row.col002 := trim(to_single_byte(l_row.col002));
+        l_row.col003 := trim(to_single_byte(l_row.col003));
+        l_row.col004 := trim(l_row.col004);
+        l_row.col005 := trim(l_row.col005);
         pipe row(l_row);
     end if;
   end loop;

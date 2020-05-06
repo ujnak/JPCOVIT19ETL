@@ -22,6 +22,11 @@ begin
             normalize_age(col004)  as "患者_年代", 
             normalize_sex(col005)  as "患者_性別",
             case when regexp_like(col006,'\s*\d+\s*月\s*\d+\s*日') then
+                '退院 ' || col006
+            else
+                col006
+            end as "患者_状態",
+            case when regexp_like(col006,'\s*\d+\s*月\s*\d+\s*日') then
                 1
             else
                 null
@@ -40,7 +45,7 @@ begin
         select  
             LINE_NO,"全国地方公共団体コード","都道府県名", 
             "公表_年月日","曜日","患者_居住地","患者_年代","患者_性別",
-            "患者_退院済フラグ"
+            "患者_状態","患者_退院済フラグ"
         from covid19_patients 
         where "全国地方公共団体コード" = p_municipality_code 
     ) n 
@@ -52,17 +57,18 @@ begin
             p."患者_居住地" = n."患者_居住地", 
             p."患者_年代" = n."患者_年代", 
             p."患者_性別" = n."患者_性別",
+            p."患者_状態" = n."患者_状態",
             p."患者_退院済フラグ" = n."患者_退院済フラグ"
     when not matched then 
         insert( 
             LINE_NO, "全国地方公共団体コード","都道府県名", 
             "公表_年月日","曜日","患者_居住地","患者_年代","患者_性別",
-            "患者_退院済フラグ"
+            "患者_状態","患者_退院済フラグ"
         ) 
         values( 
             n.LINE_NO, n."全国地方公共団体コード", n."都道府県名", 
             n."公表_年月日",n."曜日",n."患者_居住地",n."患者_年代",n."患者_性別",
-            n."患者_退院済フラグ"
+            n."患者_状態",n."患者_退院済フラグ"
         ); 
     commit; 
 end UPDATE_PATIENTS_FUKUSHIMA;
