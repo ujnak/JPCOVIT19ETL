@@ -5,7 +5,7 @@ create or replace function "NORMALIZE_TEXT"
 (p_value in VARCHAR2)
 return VARCHAR2
 is
-l_value varchar2(80) := trim(p_value);
+l_value varchar2(80) := trim(to_single_byte(p_value));
 begin
 return
     case l_value

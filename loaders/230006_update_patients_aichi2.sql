@@ -1,10 +1,7 @@
-/*
- * 石川県はプレーンなHTML
- */
-create or replace procedure UPDATE_PATIENTS_ISHIKAWA(
-    P_MUNICIPALITY_CODE IN NUMBER DEFAULT 170003,
-    P_URL IN VARCHAR2,
-    P_CACHE IN NUMBER DEFAULT 0
+create or replace procedure UPDATE_PATIENTS_AICHI2(
+    P_MUNICIPALITY_CODE IN NUMBER DEFAULT 230006,
+    P_URL IN VARCHAR2 DEFAULT NULL,
+    P_CACHE IN NUMBER DEFAULT 1
 )
 as
     pragma autonomous_transaction;
@@ -15,25 +12,17 @@ begin
         select
             to_number(col001) as LINE_NO,
             p_municipality_code as "全国地方公共団体コード",
-            '石川県' as "都道府県名",
+            '愛知県' as "都道府県名",
             normalize_date(col002) as "公表_年月日",
             to_char(normalize_date(col002),'DY') as "曜日",
-            case
-            when regexp_like(normalize_text(col005),'^石川県\s*[\(（]\w+[\)）]$') then
-                regexp_replace(col005,'^石川県\s*[\(（](\w+)[\)）]$','\1',1,1)
-            else
-                normalize_text(col005)
-            end as "患者_居住地",
-            normalize_age(col003) as "患者_年代",
-            normalize_sex(col004) as "患者_性別"
+            normalize_text(col005) as "患者_居住地",
+            normalize_age(col003)  as "患者_年代",
+            normalize_sex(col004)  as "患者_性別"
         from table(
-            parse_html_ishikawa(
-                p_html => get_content_c(
-                p_municipality_code,
-                p_url,
-                p_cache,
-                'AL32UTF8'
-                )
+            parse_pdf_table_aichi(
+                p_municipality_code => p_municipality_code,
+                p_url => p_url,
+                p_cache => p_cache
             )
         )
         minus
@@ -61,5 +50,5 @@ begin
             n."公表_年月日",n."曜日",n."患者_居住地",n."患者_年代",n."患者_性別"
         );
     commit;
-end UPDATE_PATIENTS_ISHIKAWA;
+end UPDATE_PATIENTS_AICHI2;
 /

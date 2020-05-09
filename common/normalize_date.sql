@@ -3,6 +3,10 @@ p_value IN varchar2) RETURN date IS
 BEGIN
     RETURN
     case
+    when regexp_like(p_value, '^\d+月\d+日\(\w曜日\)$') then
+        to_date(substr(p_value,1,instr(p_value,'(')-1), 'MM"月"DD"日')
+    when regexp_like(p_value, '^\d+月\d+日\(\w\)$') then
+        to_date(substr(p_value,1,instr(p_value,'(')-1), 'MM"月"DD"日')
     when regexp_like(p_value, '^\d{4}[/-]\d{1,2}[/-]\d{1,2}\w\d{1,2}[:]\d{1,2}$') then
         to_date(p_value, 'YYYY-MM-DD"T"HH24:MI')
     when regexp_like(p_value,'^令和\d+年\d+月\d+日$') then
