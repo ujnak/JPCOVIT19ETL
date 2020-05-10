@@ -28,16 +28,16 @@ prompt APPLICATION 30392 - COVID19患者情報
 -- Application Export:
 --   Application:     30392
 --   Name:            COVID19患者情報
---   Date and Time:   04:21 水曜日 5月 6, 2020
+--   Date and Time:   02:28 日曜日 5月 10, 2020
 --   Exported By:     YUJI.NAKAKOSHI@ORACLE.COM
 --   Flashback:       0
 --   Export Type:     Application Export
 --     Pages:                      7
---       Items:                   17
+--       Items:                   21
 --       Processes:                8
 --       Regions:                  8
---       Buttons:                  7
---       Dynamic Actions:          5
+--       Buttons:                  9
+--       Dynamic Actions:          7
 --     Shared Components:
 --       Logic:
 --         Processes:              3
@@ -142,7 +142,7 @@ wwv_flow_api.create_flow(
 ,p_substitution_string_13=>'G_URL_OITA'
 ,p_substitution_value_13=>'https://data.bodik.jp/dataset/f632f467-716c-46aa-8838-0d535f98b291/resource/3714d264-70f3-4518-a57a-8391e0851d7d/download/440001oitacovid19patients.csv'
 ,p_last_updated_by=>'YUJI.NAKAKOSHI@ORACLE.COM'
-,p_last_upd_yyyymmddhh24miss=>'20200505100437'
+,p_last_upd_yyyymmddhh24miss=>'20200510002336'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>3
 ,p_ui_type_name => null
@@ -12972,7 +12972,7 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_page_is_public_y_n=>'Y'
 ,p_last_updated_by=>'YUJI.NAKAKOSHI@ORACLE.COM'
-,p_last_upd_yyyymmddhh24miss=>'20200505024937'
+,p_last_upd_yyyymmddhh24miss=>'20200510002336'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(11125546593254356390)
@@ -13255,8 +13255,32 @@ wwv_flow_api.create_worksheet_rpt(
 ,p_chart_orientation=>'vertical'
 );
 wwv_flow_api.create_page_button(
- p_id=>wwv_flow_api.id(13710185586729242862)
+ p_id=>wwv_flow_api.id(7840994180511778448)
+,p_button_sequence=>10
+,p_button_plug_id=>wwv_flow_api.id(11125546593254356390)
+,p_button_name=>'B_OPEN_HOME'
+,p_button_action=>'DEFINED_BY_DA'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_api.id(12619063719926111592)
+,p_button_image_alt=>unistr('\81EA\6CBB\4F53\306E\30B5\30A4\30C8\3092\958B\304F')
+,p_button_position=>'RIGHT_OF_IR_SEARCH_BAR'
+,p_warn_on_unsaved_changes=>null
+);
+wwv_flow_api.create_page_button(
+ p_id=>wwv_flow_api.id(14035730832425662304)
 ,p_button_sequence=>20
+,p_button_plug_id=>wwv_flow_api.id(11125546593254356390)
+,p_button_name=>'B_OPEN_DATA'
+,p_button_action=>'DEFINED_BY_DA'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_api.id(12619063719926111592)
+,p_button_image_alt=>unistr('\30C7\30FC\30BF\63B2\8F09\5148\3092\958B\304F')
+,p_button_position=>'RIGHT_OF_IR_SEARCH_BAR'
+,p_warn_on_unsaved_changes=>null
+);
+wwv_flow_api.create_page_button(
+ p_id=>wwv_flow_api.id(13710185586729242862)
+,p_button_sequence=>30
 ,p_button_plug_id=>wwv_flow_api.id(11125546593254356390)
 ,p_button_name=>'B_CSV'
 ,p_button_action=>'DEFINED_BY_DA'
@@ -13268,7 +13292,7 @@ wwv_flow_api.create_page_button(
 );
 wwv_flow_api.create_page_button(
  p_id=>wwv_flow_api.id(13710185735434242863)
-,p_button_sequence=>30
+,p_button_sequence=>40
 ,p_button_plug_id=>wwv_flow_api.id(11125546593254356390)
 ,p_button_name=>'B_JSON'
 ,p_button_action=>'DEFINED_BY_DA'
@@ -13344,6 +13368,22 @@ wwv_flow_api.create_page_item(
 ,p_lov_display_extra=>'YES'
 ,p_attribute_01=>'NONE'
 ,p_attribute_02=>'N'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(14035730558971662301)
+,p_name=>'P1_HOME_URL'
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_api.id(11125546593254356390)
+,p_display_as=>'NATIVE_HIDDEN'
+,p_attribute_01=>'Y'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(14035730708100662303)
+,p_name=>'P1_DATA_URL'
+,p_item_sequence=>60
+,p_item_plug_id=>wwv_flow_api.id(11125546593254356390)
+,p_display_as=>'NATIVE_HIDDEN'
+,p_attribute_01=>'Y'
 );
 wwv_flow_api.create_page_da_event(
  p_id=>wwv_flow_api.id(13710185779172242864)
@@ -13422,7 +13462,7 @@ unistr('"\5168\56FD\5730\65B9\516C\5171\56E3\4F53\30B3\30FC\30C9" = :P1_MUNICIPA
 ,p_attribute_07=>'P1_MUNICIPALITY'
 ,p_attribute_08=>'Y'
 ,p_attribute_09=>'N'
-,p_wait_for_result=>'Y'
+,p_wait_for_result=>'N'
 );
 wwv_flow_api.create_page_da_action(
  p_id=>wwv_flow_api.id(7840992967365778436)
@@ -13442,7 +13482,75 @@ wwv_flow_api.create_page_da_action(
 ,p_attribute_07=>'P1_MUNICIPALITY'
 ,p_attribute_08=>'Y'
 ,p_attribute_09=>'N'
-,p_wait_for_result=>'Y'
+,p_wait_for_result=>'N'
+);
+wwv_flow_api.create_page_da_action(
+ p_id=>wwv_flow_api.id(14035730632687662302)
+,p_event_id=>wwv_flow_api.id(7840992574192778432)
+,p_event_result=>'TRUE'
+,p_action_sequence=>40
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SET_VALUE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P1_HOME_URL'
+,p_attribute_01=>'SQL_STATEMENT'
+,p_attribute_03=>'select home_url from covid19_municipalities where code = :P1_MUNICIPALITY'
+,p_attribute_07=>'P1_MUNICIPALITY'
+,p_attribute_08=>'N'
+,p_attribute_09=>'N'
+,p_wait_for_result=>'N'
+);
+wwv_flow_api.create_page_da_action(
+ p_id=>wwv_flow_api.id(14035730915619662305)
+,p_event_id=>wwv_flow_api.id(7840992574192778432)
+,p_event_result=>'TRUE'
+,p_action_sequence=>50
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SET_VALUE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P1_DATA_URL'
+,p_attribute_01=>'SQL_STATEMENT'
+,p_attribute_03=>'select official_site_url from covid19_municipalities where code = :P1_MUNICIPALITY'
+,p_attribute_07=>'P1_MUNICIPALITY'
+,p_attribute_08=>'N'
+,p_attribute_09=>'N'
+,p_wait_for_result=>'N'
+);
+wwv_flow_api.create_page_da_event(
+ p_id=>wwv_flow_api.id(7840994206946778449)
+,p_name=>unistr('\30DB\30FC\30E0\3092\958B\304F')
+,p_event_sequence=>40
+,p_triggering_element_type=>'BUTTON'
+,p_triggering_button_id=>wwv_flow_api.id(7840994180511778448)
+,p_bind_type=>'bind'
+,p_bind_event_type=>'click'
+);
+wwv_flow_api.create_page_da_action(
+ p_id=>wwv_flow_api.id(7840994376695778450)
+,p_event_id=>wwv_flow_api.id(7840994206946778449)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_JAVASCRIPT_CODE'
+,p_attribute_01=>'window.open(apex.item("P1_HOME_URL").getValue());'
+);
+wwv_flow_api.create_page_da_event(
+ p_id=>wwv_flow_api.id(14035731099272662306)
+,p_name=>unistr('\30C7\30FC\30BF\3092\958B\304F')
+,p_event_sequence=>50
+,p_triggering_element_type=>'BUTTON'
+,p_triggering_button_id=>wwv_flow_api.id(14035730832425662304)
+,p_bind_type=>'bind'
+,p_bind_event_type=>'click'
+);
+wwv_flow_api.create_page_da_action(
+ p_id=>wwv_flow_api.id(14035731136019662307)
+,p_event_id=>wwv_flow_api.id(14035731099272662306)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_JAVASCRIPT_CODE'
+,p_attribute_01=>'window.open(apex.item("P1_DATA_URL").getValue());'
 );
 end;
 /
@@ -13704,7 +13812,7 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_protection_level=>'C'
 ,p_last_updated_by=>'YUJI.NAKAKOSHI@ORACLE.COM'
-,p_last_upd_yyyymmddhh24miss=>'20200504094605'
+,p_last_upd_yyyymmddhh24miss=>'20200509072427'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(8546973017815391904)
@@ -13789,6 +13897,40 @@ wwv_flow_api.create_page_button(
 ,p_button_condition=>'P3_CODE'
 ,p_button_condition_type=>'ITEM_IS_NULL'
 ,p_database_action=>'INSERT'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(7840993892741778445)
+,p_name=>'P3_LAST_UPDATE_DATE'
+,p_source_data_type=>'DATE'
+,p_item_sequence=>100
+,p_item_plug_id=>wwv_flow_api.id(8546973017815391904)
+,p_item_source_plug_id=>wwv_flow_api.id(8546973017815391904)
+,p_source=>'LAST_UPDATE_DATE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_is_persistent=>'N'
+,p_attribute_01=>'Y'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(7840993953695778446)
+,p_name=>'P3_HOME_URL'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>80
+,p_item_plug_id=>wwv_flow_api.id(8546973017815391904)
+,p_item_source_plug_id=>wwv_flow_api.id(8546973017815391904)
+,p_prompt=>unistr('\81EA\6CBB\4F53\30DB\30FC\30E0URL')
+,p_source=>'HOME_URL'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_cMaxlength=>400
+,p_field_template=>wwv_flow_api.id(12619062584277111590)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
 );
 wwv_flow_api.create_page_item(
  p_id=>wwv_flow_api.id(8546973335533391904)

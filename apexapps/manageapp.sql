@@ -28,12 +28,12 @@ prompt APPLICATION 143257 - 患者データ管理
 -- Application Export:
 --   Application:     143257
 --   Name:            患者データ管理
---   Date and Time:   04:46 水曜日 5月 6, 2020
+--   Date and Time:   02:28 日曜日 5月 10, 2020
 --   Exported By:     YUJI.NAKAKOSHI@ORACLE.COM
 --   Flashback:       0
 --   Export Type:     Application Export
 --     Pages:                      7
---       Items:                   27
+--       Items:                   25
 --       Computations:             2
 --       Processes:                7
 --       Regions:                 16
@@ -118,7 +118,7 @@ wwv_flow_api.create_flow(
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'Covid19 Patients'
 ,p_last_updated_by=>'YUJI.NAKAKOSHI@ORACLE.COM'
-,p_last_upd_yyyymmddhh24miss=>'20200506044453'
+,p_last_upd_yyyymmddhh24miss=>'20200509072003'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>3
 ,p_ui_type_name => null
@@ -11126,8 +11126,8 @@ wwv_flow_api.create_page(
 ,p_step_template=>wwv_flow_api.id(12323012287951653799)
 ,p_page_template_options=>'#DEFAULT#'
 ,p_protection_level=>'C'
-,p_last_updated_by=>'MYWORKSPACE'
-,p_last_upd_yyyymmddhh24miss=>'20200503022114'
+,p_last_updated_by=>'YUJI.NAKAKOSHI@ORACLE.COM'
+,p_last_upd_yyyymmddhh24miss=>'20200509072003'
 );
 wwv_flow_api.create_report_region(
  p_id=>wwv_flow_api.id(12323174544947653401)
@@ -11302,43 +11302,23 @@ wwv_flow_api.create_page_item(
 );
 wwv_flow_api.create_page_item(
  p_id=>wwv_flow_api.id(12323175519769653398)
-,p_name=>unistr('P3_\66DC\65E5')
+,p_name=>unistr('P3_\90FD\9053\5E9C\770C\540D')
 ,p_source_data_type=>'VARCHAR2'
 ,p_item_sequence=>20
 ,p_item_plug_id=>wwv_flow_api.id(12323174596710653401)
-,p_prompt=>unistr('\66DC\65E5')
-,p_source=>unistr('\66DC\65E5')
+,p_prompt=>unistr('\90FD\9053\5E9C\770C\540D')
+,p_source=>unistr('\90FD\9053\5E9C\770C\540D')
 ,p_source_type=>'FACET_COLUMN'
 ,p_display_as=>'NATIVE_CHECKBOX'
-,p_attribute_01=>'1'
-,p_attribute_02=>'VERTICAL'
 ,p_fc_collapsible=>true
 ,p_fc_initial_collapsed=>false
 ,p_fc_compute_counts=>true
 ,p_fc_show_counts=>true
 ,p_fc_zero_count_entries=>'H'
 ,p_fc_show_more_count=>7
+,p_fc_filter_values=>false
 ,p_fc_sort_by_top_counts=>true
-);
-wwv_flow_api.create_page_item(
- p_id=>wwv_flow_api.id(12323175880642653398)
-,p_name=>unistr('P3_\60A3\8005_\5C45\4F4F\5730')
-,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>30
-,p_item_plug_id=>wwv_flow_api.id(12323174596710653401)
-,p_prompt=>unistr('\60A3\8005 \5C45\4F4F\5730')
-,p_source=>unistr('\60A3\8005_\5C45\4F4F\5730')
-,p_source_type=>'FACET_COLUMN'
-,p_display_as=>'NATIVE_CHECKBOX'
-,p_attribute_01=>'1'
-,p_attribute_02=>'VERTICAL'
-,p_fc_collapsible=>true
-,p_fc_initial_collapsed=>false
-,p_fc_compute_counts=>true
-,p_fc_show_counts=>true
-,p_fc_zero_count_entries=>'H'
-,p_fc_show_more_count=>7
-,p_fc_sort_by_top_counts=>true
+,p_fc_show_selected_first=>false
 );
 wwv_flow_api.create_page_item(
  p_id=>wwv_flow_api.id(12323176262172653398)
@@ -11382,26 +11362,6 @@ wwv_flow_api.create_page_item(
 ,p_fc_zero_count_entries=>'H'
 ,p_fc_show_more_count=>5
 ,p_fc_sort_by_top_counts=>true
-);
-wwv_flow_api.create_page_item(
- p_id=>wwv_flow_api.id(12323177106276653390)
-,p_name=>'P3_LINE_NO'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>60
-,p_item_plug_id=>wwv_flow_api.id(12323174596710653401)
-,p_prompt=>'Line No'
-,p_source=>'LINE_NO'
-,p_source_type=>'FACET_COLUMN'
-,p_display_as=>'NATIVE_RANGE'
-,p_lov=>'STATIC2:<100;|100,100 - 200;100|200,200 - 600;200|600,600 - 1000;600|1000,>=1000;1000|'
-,p_attribute_01=>'Y'
-,p_attribute_02=>'Y'
-,p_fc_collapsible=>true
-,p_fc_initial_collapsed=>false
-,p_fc_compute_counts=>true
-,p_fc_show_counts=>true
-,p_fc_zero_count_entries=>'H'
-,p_fc_show_more_count=>5
 );
 end;
 /
