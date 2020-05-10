@@ -24,7 +24,8 @@ CREATE TABLE  "COVID19_PATIENTS"
 	"患者_症状" VARCHAR2(2000), 
 	"備考" VARCHAR2(2000), 
 	"患者_渡航歴の有無フラグ" NUMBER, 
-	"患者_退院済フラグ" NUMBER
+	"患者_退院済フラグ" NUMBER,
+	"患者_死亡フラグ" NUMBER
    )
 /
 ALTER TABLE  "COVID19_PATIENTS" ADD CONSTRAINT "COVID19_PATIENTS_MUNIC_FK" FOREIGN KEY ("全国地方公共団体コード")
