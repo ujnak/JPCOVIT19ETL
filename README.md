@@ -52,6 +52,8 @@ parse_pdf_table_okinawa
 Oracle APEXが提供しているSQLワークショップからデータ・ワークショップを起動し、データのロードを実行します。
 covid19_municipalities.xmlを表COVID19_MUNICIPALITIESヘロードします。
 
+主キーである列IDはロード時に自動生成されるため、マッピングから外す必要があります。
+
 ### アプリケーションのインポート
 
 covid19app.sqlをOracle APEXアプリケーションとしてインポートします。
