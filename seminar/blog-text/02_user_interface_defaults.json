@@ -1,0 +1,197 @@
+{
+"applicationDefaults": {
+  "name": "Application Defaults",
+  "tablePrefixes": "",
+  "description": "",
+  "tables": [
+    {
+      "table": "COVID19_PATIENTS",
+      "labelSingular": "陽性患者属性",
+      "labelPlural": "陽性患者一覧",
+      "primaryDisplayColumn": "%",
+      "secondaryDisplayColumn": "%",
+      "primaryKeyColumn": "%",
+      "primaryParentTable": "%",
+      "description": ""
+    }
+  ],
+  "tableColumns": [
+    {
+      "table": "COVID19_PATIENTS",
+      "column": "CITY_NAME",
+      "label": "市区町村名",
+      "formControl": "text",
+      "includeOnForms": true,
+      "includeOnReports": true,
+      "required": false,
+      "help": "VARCHAR2"
+    }
+    ,
+    {
+      "table": "COVID19_PATIENTS",
+      "column": "MUNICIPALITY_CODE",
+      "label": "全国地方公共団体コード",
+      "formControl": "numberField",
+      "includeOnForms": true,
+      "includeOnReports": true,
+      "formatMask": "999G999G999G999G999G999G999G999G999G990",
+      "required": false,
+      "help": "NUMBER"
+    }
+    ,
+    {
+      "table": "COVID19_PATIENTS",
+      "column": "NO",
+      "label": "No",
+      "formControl": "numberField",
+      "includeOnForms": true,
+      "includeOnReports": true,
+      "formatMask": "999G999G999G999G999G999G999G999G999G990",
+      "required": false,
+      "help": "NUMBER"
+    }
+    ,
+    {
+      "table": "COVID19_PATIENTS",
+      "column": "ONSET_DATE",
+      "label": "発症_年月日",
+      "formControl": "datePicker",
+      "includeOnForms": true,
+      "includeOnReports": true,
+      "required": false,
+      "help": "DATE"
+    }
+    ,
+    {
+      "table": "COVID19_PATIENTS",
+      "column": "PATIENT_AGE",
+      "label": "患者_年代",
+      "formControl": "text",
+      "includeOnForms": true,
+      "includeOnReports": true,
+      "required": false,
+      "help": "VARCHAR2"
+    }
+    ,
+    {
+      "table": "COVID19_PATIENTS",
+      "column": "PATIENT_LEFT_HOSPITAL",
+      "label": "患者_退院済フラグ",
+      "formControl": "numberField",
+      "includeOnForms": true,
+      "includeOnReports": true,
+      "formatMask": "999G999G999G999G999G999G999G999G999G990",
+      "required": false,
+      "help": "NUMBER"
+    }
+    ,
+    {
+      "table": "COVID19_PATIENTS",
+      "column": "PATIENT_LOCATION",
+      "label": "患者_居住地",
+      "formControl": "text",
+      "includeOnForms": true,
+      "includeOnReports": true,
+      "required": false,
+      "help": "VARCHAR2"
+    }
+    ,
+    {
+      "table": "COVID19_PATIENTS",
+      "column": "PATIENT_OCCUPATION",
+      "label": "患者_職業",
+      "formControl": "text",
+      "includeOnForms": true,
+      "includeOnReports": true,
+      "required": false,
+      "help": "VARCHAR2"
+    }
+    ,
+    {
+      "table": "COVID19_PATIENTS",
+      "column": "PATIENT_SEX",
+      "label": "患者_性別",
+      "formControl": "text",
+      "includeOnForms": true,
+      "includeOnReports": true,
+      "required": false,
+      "help": "VARCHAR2"
+    }
+    ,
+    {
+      "table": "COVID19_PATIENTS",
+      "column": "PATIENT_STATUS",
+      "label": "患者_状態",
+      "formControl": "text",
+      "includeOnForms": true,
+      "includeOnReports": true,
+      "required": false,
+      "help": "VARCHAR2"
+    }
+    ,
+    {
+      "table": "COVID19_PATIENTS",
+      "column": "PATIENT_SYMPTOM",
+      "label": "患者_症状",
+      "formControl": "text",
+      "includeOnForms": true,
+      "includeOnReports": true,
+      "required": false,
+      "help": "VARCHAR2"
+    }
+    ,
+    {
+      "table": "COVID19_PATIENTS",
+      "column": "PATIENT_TRAVEL_HISTORY",
+      "label": "患者_渡航歴の有無フラグ",
+      "formControl": "numberField",
+      "includeOnForms": true,
+      "includeOnReports": true,
+      "formatMask": "999G999G999G999G999G999G999G999G999G990",
+      "required": false,
+      "help": "NUMBER"
+    }
+    ,
+    {
+      "table": "COVID19_PATIENTS",
+      "column": "PREFECTURE_NAME",
+      "label": "都道府県名",
+      "formControl": "text",
+      "includeOnForms": true,
+      "includeOnReports": true,
+      "required": true,
+      "help": "VARCHAR2"
+    }
+    ,
+    {
+      "table": "COVID19_PATIENTS",
+      "column": "PUBLISHED_DATE",
+      "label": "公表_年月日",
+      "formControl": "datePicker",
+      "includeOnForms": true,
+      "includeOnReports": true,
+      "required": false,
+      "help": "DATE"
+    }
+    ,
+    {
+      "table": "COVID19_PATIENTS",
+      "column": "REMARK",
+      "label": "備考",
+      "formControl": "text",
+      "includeOnForms": true,
+      "includeOnReports": true,
+      "required": false,
+      "help": "VARCHAR2"
+    }
+  ],
+  "components": {
+    "reports": {
+      "rowsPerPage": "50",
+      "paginationMethod": "nextPrevious",
+      "numericFormatMask": "99G999G999G999G999G999G999G999G999G999G990",
+      "dateFormatMask": "SINCE"
+    }
+  }
+}
+}

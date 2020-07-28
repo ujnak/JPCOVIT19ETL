@@ -1,0 +1,16 @@
+PATIENTS
+   "No" number
+   MUNICIPALITY_CODE   number
+   PREFECTURE_NAME     vc16 /nn
+   CITY_NAME           vc40
+   PUBLISHED_DATE      date
+   ONSET_DATE          date
+   PATIENT_LOCATION    vc200
+   PATIENT_AGE         vc40
+   PATIENT_SEX         vc40
+   PATIENT_OCCUPATION  vc200
+   PATIENT_STATUS      vc200
+   PATIENT_SYMPTOM     vc200
+   PATIENT_TRAVEL_HISTORY number /check 1,0
+   PATIENT_LEFT_HOSPITAL  number /check 1,0
+   REMARK              vc200
