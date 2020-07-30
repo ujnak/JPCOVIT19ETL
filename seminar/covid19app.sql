@@ -28,7 +28,7 @@ prompt APPLICATION 78371 - 新型コロナウイルス感染症陽性患者属�
 -- Application Export:
 --   Application:     78371
 --   Name:            新型コロナウイルス感染症陽性患者属性
---   Date and Time:   04:57 火曜日 7月 28, 2020
+--   Date and Time:   08:11 木曜日 7月 30, 2020
 --   Exported By:     YUJI.NAKAKOSHI@ORACLE.COM
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -123,7 +123,7 @@ wwv_flow_api.create_flow(
 ,p_substitution_string_02=>'APP_PATH'
 ,p_substitution_value_02=>'/pls/apex/covid19jp/patients/'
 ,p_last_updated_by=>'YUJI.NAKAKOSHI@ORACLE.COM'
-,p_last_upd_yyyymmddhh24miss=>'20200728045625'
+,p_last_upd_yyyymmddhh24miss=>'20200730065653'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>3
 ,p_ui_type_name => null
@@ -14345,7 +14345,7 @@ wwv_flow_api.create_page(
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#'
 ,p_last_updated_by=>'YUJI.NAKAKOSHI@ORACLE.COM'
-,p_last_upd_yyyymmddhh24miss=>'20200728045625'
+,p_last_upd_yyyymmddhh24miss=>'20200730065653'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(89493862039656103594)
@@ -19859,7 +19859,7 @@ wwv_flow_api.create_page_process(
 '        410004 municipality_code,',
 unistr('        ''\4F50\8CC0\770C'' prefecture_name,'),
 '        null city_name,',
-unistr('        to_date(col001,''MM"\6708"DD"\65E5("Dy"\66DC\65E5)"'') published_date,'),
+unistr('        to_date(to_single_byte(col001),''MM"\6708"DD"\65E5("Dy"\66DC\65E5)"'') published_date,'),
 '        null onset_date,',
 '        col005 patient_location,',
 '        case',
